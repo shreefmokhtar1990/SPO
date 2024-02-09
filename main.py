@@ -4,6 +4,7 @@ import matplotlib.pyplot as plt
 import random
 
 dsp_bid = 4.0
+num_ssps = 8
 
 def create_publisher_ssp_dsp_graph(num_ssps=num_ssps, dsp_bid=dsp_bid):
     # Create a directed graph
