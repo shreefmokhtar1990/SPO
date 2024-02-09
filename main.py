@@ -43,7 +43,7 @@ def main():
         """,
         height=80,
     )
-    st.title('SPO Sim')
+    st.title('Supply Path Optimization - SPO Sim')
     st.info("**Choose path type (Cheapest, Conversion), set your DSP bid, and select the number of SSPs to simulate for supply path optimization.**")
 
     dsp_bid = 5.0
@@ -130,7 +130,9 @@ def main():
         st.pyplot(fig)
 
         # Add text below the graph
-        st.write("Here's some additional information about the graph...")
+        st.write("Supply Path Optimization (SPO) is a method for programmatic buyers to choose the most efficient way to purchase ad inventory.")
+        st.write("There are now many different SSPs and ad exchanges, which has made it more complex for buyers to choose the best way to buy ads.")
+        st.write("SPO helps buyers to choose the most efficient path to buy ad inventory by considering factors such as the fees charged by the SSP, the quality of the inventory, Conversions, and the performance of the ads.")
 
     option = st.radio("Choose Path Type", ["Cheapest Path", "Conversion Path"])
 
