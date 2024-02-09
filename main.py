@@ -132,7 +132,7 @@ def main():
         # Add text below the graph
         st.write("Supply Path Optimization (SPO) is a method for programmatic buyers to choose the most efficient way to purchase ad inventory.")
         st.write("There are now many different SSPs and ad exchanges, which has made it more complex for buyers to choose the best way to buy ads.")
-        st.write("SPO helps buyers to choose the most efficient path to buy ad inventory by considering factors such as the fees charged by the SSP, the quality of the inventory, Conversions, and the performance of the ads.")
+        st.write("SPO helps buyers to choose the most efficient path to buy ad inventory by considering factors such as the fees charged by the SSP, the quality of the inventory, conversions, and the performance of the ads.")
 
     option = st.radio("Choose Path Type", ["Cheapest Path", "Conversion Path"])
 
