@@ -4,6 +4,7 @@ import matplotlib.pyplot as plt
 import random
 
 def main():
+    st.set_page_config(page_title="SPO SIM")
     # Streamlit UI elements
     # insert header brand with logo and link to website
     st.components.v1.html(
