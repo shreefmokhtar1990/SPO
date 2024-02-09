@@ -3,10 +3,7 @@ import networkx as nx
 import matplotlib.pyplot as plt
 import random
 
-dsp_bid = 4.0
-num_ssps = 8
-
-def create_publisher_ssp_dsp_graph(num_ssps=num_ssps, dsp_bid=dsp_bid):
+def create_publisher_ssp_dsp_graph(num_ssps, dsp_bid):
     # Create a directed graph
     graph = nx.DiGraph()
 
@@ -67,8 +64,8 @@ def visualize_graph(graph):
     plt.axis("off")
     st.pyplot(fig)
 
-
 if __name__ == "__main__":
     num_ssps = st.sidebar.slider("Number of SSPs", 1, 10, 8)  # You can change this value to adjust the number of SSPs
-    graph = create_publisher_ssp_dsp_graph(num_ssps)
+    dsp_bid = st.sidebar.number_input("DSP Bid", value=4.0, step=0.1)  # Input for DSP bid
+    graph = create_publisher_ssp_dsp_graph(num_ssps, dsp_bid)
     visualize_graph(graph)
