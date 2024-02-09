@@ -3,7 +3,7 @@ import networkx as nx
 import matplotlib.pyplot as plt
 import random
 
-#dsp_bid = 4.0
+dsp_bid = 4.0
 
 def create_publisher_ssp_dsp_graph_conversion(num_ssps, dsp_bid):
     # Create a directed graph
