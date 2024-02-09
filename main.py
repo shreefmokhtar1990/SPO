@@ -66,6 +66,6 @@ def visualize_graph(graph):
 
 if __name__ == "__main__":
     num_ssps = st.sidebar.slider("Number of SSPs", 1, 10, 8)  # You can change this value to adjust the number of SSPs
-    dsp_bid = st.sidebar.number_input("DSP Bid", value=4.0, step=0.1)  # Input for DSP bid
+    dsp_bid = st.sidebar.number_input("DSP Bid", min_value=1.0, value=4.0, step=0.1)  # Input for DSP bid with min value of 1.0
     graph = create_publisher_ssp_dsp_graph(num_ssps, dsp_bid)
     visualize_graph(graph)
