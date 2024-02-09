@@ -95,6 +95,6 @@ if __name__ == "__main__":
         graph = create_publisher_ssp_dsp_graph_conversion(num_ssps, dsp_bid)
         visualize_graph(graph)
     elif option == "Cheapest Path":
-        #num_ssps = 8  # You can change this value to adjust the number of SSPs
+        num_ssps = 8  # You can change this value to adjust the number of SSPs
         graph = create_publisher_ssp_dsp_graph_cheapest(num_ssps, dsp_bid)
         visualize_graph(graph)
