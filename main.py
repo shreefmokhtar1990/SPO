@@ -129,6 +129,9 @@ def main():
         plt.axis("off")
         st.pyplot(fig)
 
+        # Add text below the graph
+        st.write("Here's some additional information about the graph...")
+
     option = st.radio("Choose Path Type", ["Cheapest Path", "Conversion Path"])
 
     if option == "Conversion Path":
