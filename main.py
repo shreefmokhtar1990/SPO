@@ -3,7 +3,7 @@ import networkx as nx
 import matplotlib.pyplot as plt
 import random
 
-dsp_bid = 4.0
+#dsp_bid = 4.0
 
 def create_publisher_ssp_dsp_graph_conversion(num_ssps, dsp_bid):
     # Create a directed graph
@@ -87,14 +87,14 @@ def visualize_graph(graph):
     st.pyplot(fig)
 
 if __name__ == "__main__":
-    option = st.radio("Choose Option", ["Conversion Path", "Cheapest Path"])
+    option = st.radio("Choose Path Type", ["Cheapest Path", "Conversion Path"])
 
     if option == "Conversion Path":
         num_ssps = st.sidebar.slider("Number of SSPs", 1, 10, 6)  # You can change this value to adjust the number of SSPs
-        dsp_bid = st.sidebar.number_input("DSP Bid", min_value=1.0, value=4.0, step=0.1)  # Input for DSP bid with min value of 1.0
+        dsp_bid = st.sidebar.number_input("DSP Bid", min_value=1.0, value=5.0, step=0.1)  # Input for DSP bid with min value of 1.0
         graph = create_publisher_ssp_dsp_graph_conversion(num_ssps, dsp_bid)
         visualize_graph(graph)
     elif option == "Cheapest Path":
-        num_ssps = 8  # You can change this value to adjust the number of SSPs
+        #num_ssps = 8  # You can change this value to adjust the number of SSPs
         graph = create_publisher_ssp_dsp_graph_cheapest(num_ssps, dsp_bid)
         visualize_graph(graph)
