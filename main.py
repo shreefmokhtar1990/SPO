@@ -45,7 +45,7 @@ def visualize_graph(graph):
     highest_bid_path = max(paths, key=lambda path: sum(float(graph[path[i]][path[i + 1]]['label'].split(": $")[1]) for i in range(len(path) - 1)))
 
     # Plotting the graph
-    plt.figure(figsize=(8, 6))
+    fig, _ = plt.subplots(figsize=(8, 6))
 
     # Set the color and thickness of the blue line
     edge_colors = ['black' for _ in graph.edges()]
@@ -65,7 +65,8 @@ def visualize_graph(graph):
     nx.draw_networkx_edge_labels(graph, pos, edge_labels=edge_labels)
 
     plt.axis("off")
-    st.pyplot()
+    st.pyplot(fig)
+
 
 if __name__ == "__main__":
     num_ssps = st.sidebar.slider("Number of SSPs", 1, 10, 8)  # You can change this value to adjust the number of SSPs
