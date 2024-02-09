@@ -3,7 +3,9 @@ import networkx as nx
 import matplotlib.pyplot as plt
 import random
 
-def create_publisher_ssp_dsp_graph(num_ssps, dsp_bid):
+dsp_bid = 4.0
+
+def create_publisher_ssp_dsp_graph_conversion(num_ssps, dsp_bid):
     # Create a directed graph
     graph = nx.DiGraph()
 
@@ -19,6 +21,26 @@ def create_publisher_ssp_dsp_graph(num_ssps, dsp_bid):
         adjusted_bid = dsp_bid * fee_percentage
         graph.add_node(ssp_node, label="SSP")
         graph.add_edge(ssp_node, "Publisher", label=f"Sale: ${adjusted_bid:.2f}")
+
+        # Connect SSPs to the DSP with the original bid
+        graph.add_edge("DSP", ssp_node, label=f"Bid: ${dsp_bid}")
+
+    return graph
+
+def create_publisher_ssp_dsp_graph_cheapest(num_ssps, dsp_bid):
+    # Create a directed graph
+    graph = nx.DiGraph()
+
+    # Add nodes
+    graph.add_node("Publisher", label="Publisher")
+
+    # Add SSP nodes and edges with individual adjusted bids
+    ssp_nodes = [f"SSP{i}" for i in range(1, num_ssps + 1)]
+    for ssp_node in ssp_nodes:
+        fee_percentage = random.uniform(0.025, 0.25)
+        adjusted_bid = dsp_bid - (dsp_bid * fee_percentage)
+        graph.add_node(ssp_node, label="SSP")
+        graph.add_edge(ssp_node, "Publisher", label=f"Bid: ${adjusted_bid:.2f}")
 
         # Connect SSPs to the DSP with the original bid
         graph.add_edge("DSP", ssp_node, label=f"Bid: ${dsp_bid}")
@@ -65,7 +87,14 @@ def visualize_graph(graph):
     st.pyplot(fig)
 
 if __name__ == "__main__":
-    num_ssps = st.sidebar.slider("Number of SSPs", 1, 10, 6)  # You can change this value to adjust the number of SSPs
-    dsp_bid = st.sidebar.number_input("DSP Bid", min_value=1.0, value=4.0, step=0.1)  # Input for DSP bid with min value of 1.0
-    graph = create_publisher_ssp_dsp_graph(num_ssps, dsp_bid)
-    visualize_graph(graph)
+    option = st.radio("Choose Option", ["Conversion Path", "Cheapest Path"])
+
+    if option == "Conversion Path":
+        num_ssps = st.sidebar.slider("Number of SSPs", 1, 10, 6)  # You can change this value to adjust the number of SSPs
+        dsp_bid = st.sidebar.number_input("DSP Bid", min_value=1.0, value=4.0, step=0.1)  # Input for DSP bid with min value of 1.0
+        graph = create_publisher_ssp_dsp_graph_conversion(num_ssps, dsp_bid)
+        visualize_graph(graph)
+    elif option == "Cheapest Path":
+        num_ssps = 8  # You can change this value to adjust the number of SSPs
+        graph = create_publisher_ssp_dsp_graph_cheapest(num_ssps, dsp_bid)
+        visualize_graph(graph)
