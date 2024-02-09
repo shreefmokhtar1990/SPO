@@ -43,10 +43,10 @@ def main():
         """,
         height=80,
     )
-    st.title('Daily Floor Seasonality Model')
-    st.info("**Calculate and apply the optimal floor adjustment for each day using our model. Select a day and input your initial floor value to get started.**")
+    st.title('SPO Sim')
+    st.info("**Choose path type (Cheapest, Conversion), set your DSP bid, and select the number of SSPs to simulate for supply path optimization.**")
 
-    dsp_bid = 4.0
+    dsp_bid = 5.0
 
     def create_publisher_ssp_dsp_graph_conversion(num_ssps, dsp_bid):
         # Create a directed graph
