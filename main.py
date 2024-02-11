@@ -45,6 +45,7 @@ def main():
         height=80,
     )
     st.title('Supply Path Optimization - SPO Sim')
+    st.write("Deep Dive into SPO: Visualize Bid, SSP, & Path-Type Effects on Supply Path Performance")
     st.info("**Choose path type (Cheapest, Conversion), set your DSP bid, and select the number of SSPs to simulate for supply path optimization.**")
 
     dsp_bid = 5.0
